@@ -2,6 +2,7 @@
   core:
     disabledPackages: [
       "linter-rubocop"
+      "file-icons"
     ]
   editor:
     invisibles: {}

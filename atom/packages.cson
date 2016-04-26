@@ -1,6 +1,7 @@
 packages: [
   "autoclose-html"
   "file-icons"
+  "file-type-icons"
   "highlight-selected"
   "language-javascript-jsx"
   "linter"
