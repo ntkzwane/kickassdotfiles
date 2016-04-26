@@ -1,0 +1,18 @@
+packages: [
+  "autoclose-html"
+  "file-icons"
+  "highlight-selected"
+  "language-javascript-jsx"
+  "linter"
+  "linter-eslint"
+  "linter-pylint"
+  "linter-rubocop"
+  "merge-conflicts"
+  "minimap"
+  "minimap-git-diff"
+  "minimap-linter"
+  "minimap-split-diff"
+  "package-sync"
+  "pigments"
+  "split-diff"
+]

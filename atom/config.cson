@@ -1,0 +1,24 @@
+"*":
+  core:
+    disabledPackages: [
+      "linter-rubocop"
+    ]
+  editor:
+    invisibles: {}
+  "exception-reporting":
+    userId: "d63a04e7-8032-c2d5-18ca-186666a6860a"
+  "linter-pylint": {}
+  "merge-conflicts": {}
+  minimap:
+    absoluteMode: true
+    plugins:
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
+  "package-sync":
+    forceOverwrite: true
+  welcome:
+    showOnStartup: false

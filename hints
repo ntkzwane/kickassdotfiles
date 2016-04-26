@@ -1,0 +1,34 @@
+# disable mouse
+http://askubuntu.com/questions/65951/how-to-disable-the-touchpad
+xinput set-prop [x] "Device Enabled" 0
+
+# audio control
+https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
+pavucontrol
+
+# find touchpad
+xinput list | grep "TouchPad" | grep -o "id=[0-9]*" | grep -o "[0-9]*"
+
+# turn on second screen
+xrandr --output DP1-3 --auto --right-of eDP1
+
+# mount/unmount usb
+sudo fdisk -l
+sudo mount /dev/sdb[x] /media/usb
+sudo umount /media/usb
+
+# add stuff to path, and thus dmenu
+-ln -s ./program.sh /usr/bin/shortcutname
+
+# removing desktop window when launching nautilus
+gsettings set org.gnome.desktop.background show-desktop-icons false
+
+# move workspace to monitor
+i3-msg move workspace to output left
+
+# media player
+ncmpcpp
+
+# vnstat hoto
+http://humdi.net/vnstat/
+https://www.howtoforge.com/tutorial/vnstat-network-monitoring-ubuntu/
