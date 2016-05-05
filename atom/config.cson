@@ -1,14 +1,19 @@
 "*":
+  "atom-typescript": {}
   core:
     disabledPackages: [
       "linter-rubocop"
       "file-icons"
     ]
   editor:
+    fontSize: 15
     invisibles: {}
   "exception-reporting":
     userId: "d63a04e7-8032-c2d5-18ca-186666a6860a"
   "linter-pylint": {}
+  "linter-sass-lint":
+    globalNodePath: "/home/ntokozo/.nvm/versions/node/v5.6.0"
+    noConfigDisable: true
   "merge-conflicts": {}
   minimap:
     absoluteMode: true
@@ -21,5 +26,9 @@
       "split-diffDecorationsZIndex": 0
   "package-sync":
     forceOverwrite: true
+  "tree-view": {}
   welcome:
     showOnStartup: false
+".source.tsx":
+  editor:
+    scrollPastEnd: true
