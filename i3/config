@@ -194,3 +194,6 @@ bindsym $mod+p exec i3lock
 # Move the current workspace to the output on the left or right
 bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+Right move workspace to output right
+
+# Capture screen
+bindsym $mod+Print exec shutter -f
