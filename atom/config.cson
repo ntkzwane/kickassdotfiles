@@ -4,8 +4,10 @@
     disabledPackages: [
       "linter-rubocop"
       "file-icons"
+      "linter-pylint"
     ]
   editor:
+    fontSize: 16
     invisibles: {}
   "exception-reporting":
     userId: "d63a04e7-8032-c2d5-18ca-186666a6860a"
@@ -28,6 +30,10 @@
   "tree-view": {}
   welcome:
     showOnStartup: false
+".source.ts":
+  editor:
+    scrollPastEnd: true
+    showInvisibles: false
 ".source.tsx":
   editor:
     scrollPastEnd: true
