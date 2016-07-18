@@ -166,8 +166,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Touchpad controls
-set $mouse_mode Mouse: (e) enable, (d) disable
-mode "$mouse_mode" {
+set $mode_mouse Mouse: (e) enable, (d) disable
+mode "$mode_mouse" {
      # These bindings trigger as soon as you enter the mouse mode
 
      # Pressing 'e' will enable the mouse
@@ -180,7 +180,7 @@ mode "$mouse_mode" {
      bindsym Escape mode "default"
 }
 
-bindsym $mod+m mode "$mouse_mode"
+bindsym $mod+m mode "$mode_mouse"
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -197,3 +197,18 @@ bindsym $mod+Control+Right move workspace to output right
 
 # Capture screen
 bindsym $mod+Print exec shutter -f
+
+## Manual management of external displays
+# Set the shortcuts and what they do
+set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+mode "$mode_display" {
+    bindsym v exec --no-startup-id xrandr --output DP1-3 --auto --left-of eDP1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1, mode "default"
+    bindsym x exec --no-startup-id xrandr --output DP1-3 --auto --off, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+    
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "$mode_display"

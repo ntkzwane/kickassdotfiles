@@ -10,6 +10,7 @@
     invisibles: {}
   "exception-reporting":
     userId: "d63a04e7-8032-c2d5-18ca-186666a6860a"
+  linter: {}
   "linter-pylint": {}
   "linter-sass-lint":
     globalNodePath: "/home/ntokozo/.nvm/versions/node/v5.6.0"
