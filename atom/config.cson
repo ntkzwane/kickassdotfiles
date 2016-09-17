@@ -5,8 +5,10 @@
       "linter-rubocop"
       "file-icons"
       "linter-pylint"
+      "vim-mode"
     ]
   editor:
+    fontSize: 12
     invisibles: {}
   "exception-reporting":
     userId: "d63a04e7-8032-c2d5-18ca-186666a6860a"
