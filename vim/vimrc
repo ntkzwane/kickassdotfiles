@@ -44,26 +44,26 @@ set clipboard=unnamedplus
 call plug#begin('~/.vim/plugged')
 
 " Color schemes
-Plug 'joshdick/onedark.vim'           " onedark
-"Plug 'NLKNguyen/papercolor-theme'    " PaperColor
+Plug 'joshdick/onedark.vim'                                     " onedark
+"Plug 'NLKNguyen/papercolor-theme'                              " PaperColor
 "Plug 'gosukiwi/vim-atom-dark'
 
 " Aesthetics
-Plug 'vim-airline/vim-airline'        " A cooler status bar at the bottom
-Plug 'vim-airline/vim-airline-themes' " A cooler status bar at the bottom
-Plug 'airblade/vim-gitgutter'         " Show git changes in the gutter
-Plug 'kien/rainbow_parentheses.vim'   " Colourful parentheses
-Plug 'ntpeters/vim-better-whitespace' " Highlight trailing whitespace
-Plug 'valloric/MatchTagAlways'        " Highlight matching tags
-Plug 'sheerun/vim-polyglot'           " Language support
-Plug 'suan/vim-instant-markdown'      " Instant markdown in the browser (also install global npm package)
+Plug 'vim-airline/vim-airline'                                  " A cooler status bar at the bottom
+Plug 'vim-airline/vim-airline-themes'                           " A cooler status bar at the bottom
+Plug 'airblade/vim-gitgutter'                                   " Show git changes in the gutter
+Plug 'kien/rainbow_parentheses.vim'                             " Colourful parentheses
+Plug 'ntpeters/vim-better-whitespace'                           " Highlight trailing whitespace
+Plug 'valloric/MatchTagAlways'                                  " Highlight matching tags
+Plug 'sheerun/vim-polyglot'                                     " Language support
+Plug 'suan/vim-instant-markdown'                                " Instant markdown in the browser (also install global npm package)
 
 " General
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file searching
-
-
-"Plug 'leafgarland/typescript-vim'                                 " Typescript syntax highlighting
-Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi'  " Tsuquyomi (typescript plugin) depends on vimproc
+Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi' " Tsuquyomi (typescript plugin) depends on vimproc
+Plug 'scrooloose/nerdtree'                                      " View directory as a sidebar
+Plug 'jistr/vim-nerdtree-tabs'                                  " Making NERDTree better
+Plug 'Xuyuanp/nerdtree-git-plugin'                              " Making NERDTree play with GIT
 
 "Plug 'Valloric/YouCompleteMe'                                     " Autocomplete
 " autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
@@ -83,10 +83,6 @@ set wildignore+=*/.idea/*                                       " IDEs/TextEdito
 """ onedark
 let g:onedark_termcolors=256
 
-"---------------------------------------------------------------
-""           Plugin Settings
-"---------------------------------------------------------------
-
 """ Tsuquyomi
 set ballooneval                                                " show tooltip
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
@@ -97,6 +93,24 @@ let g:tsuquyomi_disable_default_mappings = 1                   " disable default
 "let g:ycm_register_as_syntastic_checker = 0
 "let g:ycm_confirm_extra_conf=0
 "set completeopt-=preview
+
+""" NERDTree
+autocmd vimenter * NERDTree
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+""" gitNERDTree
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 "---------------------------------------------------------------
 ""             Display
