@@ -5,21 +5,23 @@ set shell=/bin/zsh
 
 set encoding=utf-8
 "set showcmd							  																		" display incomplete commands
+syntax enable
+filetype plugin on
 
 "" Spacing
-"set nowrap                          														" don't wrap lines
+set nowrap                          														" don't wrap lines
 set tabstop=2 shiftwidth=2          														" a tab is two spaces (or set this to 4)
 set backspace=indent,eol,start      														" backspace through everything in insert mode
 set expandtab                       " use spaces, not tabs (optional)
 
-" Navigation
+"" Navigation
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
 " coming from other editors would expect.
 set nostartofline
 set mouse=a																											" Enable use of the mouse for all modes
 
-" Display
+"" Display
 set number 																											" Display line numbers on the left
 set ruler 																											" Display the cursor position on the last line of the screen or in the status line of a window
 set laststatus=2																								" Always display the status line, even if only one window is displayed
@@ -33,16 +35,17 @@ set smartcase                           												" ... unless they contain at
 nnoremap <silent> <C-a> :nohl<CR><C-l>  " <Ctrl-a> redraws the screen and removes any search highlighting.
 
 "" Use system clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 "---------------------------------------------------------------
-""           Plugin Settings
+""           Plugins
 "---------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
 " Color schemes
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'joshdick/onedark.vim'           " onedark
+"Plug 'NLKNguyen/papercolor-theme'    " PaperColor
 "Plug 'gosukiwi/vim-atom-dark'
 
 " Aesthetics
@@ -53,28 +56,41 @@ Plug 'kien/rainbow_parentheses.vim'   " Colourful parentheses
 Plug 'ntpeters/vim-better-whitespace' " Highlight trailing whitespace
 Plug 'valloric/MatchTagAlways'        " Highlight matching tags
 Plug 'sheerun/vim-polyglot'           " Language support
+Plug 'suan/vim-instant-markdown'      " Instant markdown in the browser (also install global npm package)
 
 " General
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file searching
-let g:ctrlp_working_path_mode = 'ra'   " Default local working directory
 
 
 "Plug 'leafgarland/typescript-vim'                                 " Typescript syntax highlighting
-"Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi'  " Tsuquyomi (typescript plugin) depends on vimproc
+Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi'  " Tsuquyomi (typescript plugin) depends on vimproc
 
 "Plug 'Valloric/YouCompleteMe'                                     " Autocomplete
 " autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 call plug#end()
 
 "---------------------------------------------------------------
+""           Plugin Configuration
+"---------------------------------------------------------------
+""" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'                            " Default local working directory
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip                        " Linux/MacOSX
+set wildignore+=*/node_modules/*,*/platforms/*,*/plugins/*      " Library/dependency directories
+set wildignore+=*/.idea/*                                       " IDEs/TextEditors
+
+""" onedark
+let g:onedark_termcolors=256
+
+"---------------------------------------------------------------
 ""           Plugin Settings
 "---------------------------------------------------------------
 
-"" Tsuquyomi
-" show tooltip
-"autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-" disable default tsuquyomi keymappins
-"let g:tsuquyomi_disable_default_mappings = 1
+""" Tsuquyomi
+set ballooneval                                                " show tooltip
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+let g:tsuquyomi_disable_default_mappings = 1                   " disable default tsuquyomi keymappins
 
 "" YouCompleteMe
 "let g:ycm_add_preview_to_completeopt=0
@@ -86,9 +102,6 @@ call plug#end()
 ""             Display
 "---------------------------------------------------------------
 
-syntax enable
-
-" vim atom dark
-set background=dark
-colorscheme PaperColor
+" set background=dark
+colorscheme onedark
 
