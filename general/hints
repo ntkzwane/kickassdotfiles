@@ -29,6 +29,10 @@ i3-msg move workspace to output left
 # media player
 ncmpcpp
 
-# vnstat hoto
+# vnstat howto
 http://humdi.net/vnstat/
 https://www.howtoforge.com/tutorial/vnstat-network-monitoring-ubuntu/
+
+# rsync magic
+https://www.unixmen.com/synchronize-files-directories-across-systems-using-rsync/
+
