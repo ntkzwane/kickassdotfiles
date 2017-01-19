@@ -95,13 +95,13 @@ let g:tsuquyomi_disable_default_mappings = 1                   " disable default
 "set completeopt-=preview
 
 """ NERDTree
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree                                     " show NERDTree on vim startup
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 """ gitNERDTree
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
+    \ "Modified"  : "~",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
     \ "Renamed"   : "➜",
