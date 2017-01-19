@@ -6,13 +6,15 @@
       "file-icons"
       "linter-pylint"
       "vim-mode"
+      "linter-tslint"
     ]
   editor:
-    fontSize: 12
     invisibles: {}
   "exception-reporting":
     userId: "d63a04e7-8032-c2d5-18ca-186666a6860a"
-  linter: {}
+  "git-diff": {}
+  linter:
+    errorPanelHeight: 764
   "linter-pylint": {}
   "linter-sass-lint":
     globalNodePath: "/home/ntokozo/.nvm/versions/node/v5.6.0"
@@ -29,6 +31,15 @@
       "split-diffDecorationsZIndex": 0
   "package-sync":
     forceOverwrite: true
+  "tab-switcher": {}
+  "todo-show":
+    ignoreThesePaths: [
+      "**/node_modules/"
+      "**/vendor/"
+      "**/bower_components/"
+      "**/lib/"
+      "**/libs/"
+    ]
   "tree-view": {}
   welcome:
     showOnStartup: false
