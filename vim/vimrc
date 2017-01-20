@@ -76,6 +76,10 @@ call plug#end()
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'                            " Default local working directory
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }                                                         " <CR> (enter) to open file in new tab instead of <c-t>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip                        " Linux/MacOSX
 set wildignore+=*/node_modules/*,*/platforms/*,*/plugins/*      " Library/dependency directories
 set wildignore+=*/.idea/*                                       " IDEs/TextEditors
