@@ -57,6 +57,10 @@ Plug 'ntpeters/vim-better-whitespace'                           " Highlight trai
 Plug 'valloric/MatchTagAlways'                                  " Highlight matching tags
 Plug 'sheerun/vim-polyglot'                                     " Language support
 Plug 'suan/vim-instant-markdown'                                " Instant markdown in the browser (also install global npm package)
+Plug 'tomtom/tcomment_vim'                                      " Easier commenting
+Plug 'gorodinskiy/vim-coloresque'                               " A css/less/sass/html color preview
+Plug 'scrooloose/syntastic'                                     " Syntax checking for various languages
+Plug 'tpope/vim-eunuch'                                         " Vim sugar for the UNIX shell commands that need it the most
 
 " General
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file searching
@@ -115,6 +119,27 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
+
+"" Syntastic
+let g:syntastic_ruby_checkers = ['rubocop']                     " Use MRI and Rubocop checkers for Ruby files
+let g:syntastic_javascript_checkers = ['eslint']                " Use eslint for Javascript files
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = {
+        \ "mode": "passive",
+        \ "active_filetypes": [],
+        \ "passive_filetypes": ["ruby", "javascript", "typescript"] }
+
+" nnoremap <leader>z :SyntasticCheck<CR>
+" nnoremap <leader>c :SyntasticReset<CR>                          " Scan file again for syntax erors
 
 "---------------------------------------------------------------
 ""             Display
