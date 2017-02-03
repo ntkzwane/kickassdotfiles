@@ -67,6 +67,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,6 +93,11 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export ANDROID_HOME=~/Development/tools/android-sdk-linux 
+export ANDROID_HOME=~/Development/tools/android-sdk-linux
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# this fixes the bug with the unity-control-center not rendering properly
+if [ $XDG_CURRENT_DESKTOP="i3" ]; then
+   XDG_CURRENT_DESKTOP="Unity"
+fi
