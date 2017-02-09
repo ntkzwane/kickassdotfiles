@@ -101,3 +101,6 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 if [ $XDG_CURRENT_DESKTOP="i3" ]; then
    XDG_CURRENT_DESKTOP="Unity"
 fi
+
+# for some reason I have to run this command so that my key gets forwarded across hosts through ssh
+ssh-add -k
