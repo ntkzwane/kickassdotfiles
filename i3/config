@@ -196,7 +196,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Lock the computter using i3lock
-bindsym $mod+p exec i3lock
+bindsym $mod+p exec i3exit lock
 
 #i3lock, suspend, shutdown. Custom system mode (dd i3exit script to bin)
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
