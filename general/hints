@@ -42,3 +42,5 @@ http://unix.stackexchange.com/questions/151547/linux-set-date-through-command-li
 # terminal network app
 nmtui
 
+# mount shared folder virtual box
+sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) shared_folder ~/Guest/Directory

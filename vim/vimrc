@@ -20,6 +20,7 @@ set expandtab                       " use spaces, not tabs (optional)
 " coming from other editors would expect.
 set nostartofline
 set mouse=a																											" Enable use of the mouse for all modes
+setlocal foldmethod=syntax                                      " Enable code folding
 
 "" Display
 set number 																											" Display line numbers on the left
