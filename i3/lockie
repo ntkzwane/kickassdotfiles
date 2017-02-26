@@ -1,0 +1,3 @@
+#!/bin/zsh
+notify-send "Locking..." &&
+i3lock -i <(import -window root - | convert -blur -1x5 - png:-)

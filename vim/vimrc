@@ -69,6 +69,7 @@ Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi' " Tsuquyomi (ty
 Plug 'scrooloose/nerdtree'                                      " View directory as a sidebar
 Plug 'jistr/vim-nerdtree-tabs'                                  " Making NERDTree better
 Plug 'Xuyuanp/nerdtree-git-plugin'                              " Making NERDTree play with GIT
+Plug 'matze/vim-move'                                           " Move line(s) up and down
 
 "Plug 'Valloric/YouCompleteMe'                                     " Autocomplete
 " autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
@@ -141,6 +142,9 @@ let g:syntastic_mode_map = {
 
 " nnoremap <leader>z :SyntasticCheck<CR>
 " nnoremap <leader>c :SyntasticReset<CR>                          " Scan file again for syntax erors
+
+"" move
+let g:move_key_modifier = 'C'                                     " Change key binding for move to CTRL
 
 "---------------------------------------------------------------
 ""             Display
