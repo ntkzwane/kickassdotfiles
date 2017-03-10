@@ -64,7 +64,7 @@ Plug 'scrooloose/syntastic'                                     " Syntax checkin
 Plug 'tpope/vim-eunuch'                                         " Vim sugar for the UNIX shell commands that need it the most
 
 " General
-Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file searching
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " General-purpose command-line fuzzy finder.
 Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi' " Tsuquyomi (typescript plugin) depends on vimproc
 Plug 'scrooloose/nerdtree'                                      " View directory as a sidebar
 Plug 'jistr/vim-nerdtree-tabs'                                  " Making NERDTree better
@@ -78,17 +78,11 @@ call plug#end()
 "---------------------------------------------------------------
 ""           Plugin Configuration
 "---------------------------------------------------------------
-""" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'                            " Default local working directory
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }                                                         " <CR> (enter) to open file in new tab instead of <c-t>
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip                        " Linux/MacOSX
-set wildignore+=*/node_modules/*,*/platforms/*,*/plugins/*      " Library/dependency directories
-set wildignore+=*/.idea/*                                       " IDEs/TextEditors
+
+""" fzf
+" export FZF_DEFAULT_COMMAND='ag -g ""'
+" export FZF_DEFAULT_OPTS="--reverse --inline-info"
+nnoremap <C-p> :FZF<CR>                                             " <Ctrl-p> initiates fuzzy-find in current directory
 
 """ onedark
 let g:onedark_termcolors=256

@@ -103,3 +103,14 @@ fi
 
 # for some reason I have to run this command so that my key gets forwarded across hosts through ssh
 ssh-add -k
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## FZF fuzzy finder
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+

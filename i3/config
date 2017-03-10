@@ -224,12 +224,14 @@ bindsym $mod+Print exec shutter -f
 
 ## Manual management of external displays
 # Set the shortcuts and what they do
-set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF, (shift+v) VGA (right of HDMI) ON
 mode "$mode_display" {
-    bindsym v exec --no-startup-id xrandr --output DP1-3 --auto --right-of eDP1, mode "default"
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
-    bindsym x exec --no-startup-id xrandr --output DP1-3 --auto --off, mode "default"
-    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+    bindsym v exec --no-startup-id xrandr --output DP-1-3 --auto --right-of eDP-1, mode "default"
+    bindsym shift+v exec --no-startup-id xrandr --output DP-1-3 --auto --right-of HDMI-1, mode "default"
+    bindsym x exec --no-startup-id xrandr --output DP-1-3 --auto --off, mode "default"
+
+    bindsym h exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI-1 --auto --off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
