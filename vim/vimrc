@@ -62,6 +62,7 @@ Plug 'tomtom/tcomment_vim'                                      " Easier comment
 Plug 'gorodinskiy/vim-coloresque'                               " A css/less/sass/html color preview
 Plug 'scrooloose/syntastic'                                     " Syntax checking for various languages
 Plug 'tpope/vim-eunuch'                                         " Vim sugar for the UNIX shell commands that need it the most
+Plug 'Shougo/neocomplete.vim'                                   " As-you-type autocomplete
 
 " General
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " General-purpose command-line fuzzy finder.
@@ -71,8 +72,6 @@ Plug 'jistr/vim-nerdtree-tabs'                                  " Making NERDTre
 Plug 'Xuyuanp/nerdtree-git-plugin'                              " Making NERDTree play with GIT
 Plug 'matze/vim-move'                                           " Move line(s) up and down
 
-"Plug 'Valloric/YouCompleteMe'                                     " Autocomplete
-" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 call plug#end()
 
 "---------------------------------------------------------------
@@ -91,12 +90,6 @@ let g:onedark_termcolors=256
 set ballooneval                                                " show tooltip
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 let g:tsuquyomi_disable_default_mappings = 1                   " disable default tsuquyomi keymappins
-
-"" YouCompleteMe
-"let g:ycm_add_preview_to_completeopt=0
-"let g:ycm_register_as_syntastic_checker = 0
-"let g:ycm_confirm_extra_conf=0
-"set completeopt-=preview
 
 """ NERDTree
 "autocmd vimenter * NERDTree                                     " show NERDTree on vim startup
@@ -139,6 +132,29 @@ let g:syntastic_mode_map = {
 
 "" move
 let g:move_key_modifier = 'C'                                     " Change key binding for move to CTRL
+
+"" neocomplete
+let g:neocomplete#enable_at_startup = 1                           " Enable on startup
+let g:neocomplete#enable_smart_case = 1                           " Use smartcase
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 "---------------------------------------------------------------
 ""             Display
