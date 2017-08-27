@@ -1,0 +1,24 @@
+#!/bin/bash
+function lnvim {
+  ln -sf /home/ntokozo/.kickassconfigs/vim/vimrc /home/ntokozo/.vimrc
+}
+
+function lnzsh {
+  ln -sf /home/ntokozo/.kickassconfigs/zsh/zshrc /home/ntokozo/.zshrc
+}
+
+function lnprofile {
+  ln -sf /home/ntokozo/.kickassconfigs/linux/profile /home/ntokozo/.profile
+}
+
+function lni3wm {
+  mkdir -p /home/ntokozo/.config/i3status
+  ln -sf /home/ntokozo/.kickassconfigs/i3/config /home/ntokozo/.i3/config
+  ln -sf /home/ntokozo/.kickassconfigs/i3/i3status.conf /home/ntokozo/.config/i3status/config
+}
+
+lnvim
+lnzsh
+lnprofile
+lni3wm
+
