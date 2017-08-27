@@ -12,7 +12,8 @@ filetype plugin on
 set nowrap                          														" don't wrap lines
 set tabstop=2 shiftwidth=2          														" a tab is two spaces (or set this to 4)
 set backspace=indent,eol,start      														" backspace through everything in insert mode
-set expandtab                       " use spaces, not tabs (optional)
+set expandtab                                                   " use spaces, not tabs (optional)
+set nojoinspaces                                                " Use one space, not two, after punctuation.
 
 "" Navigation
 " Stop certain movements from always going to the first character of a line.
@@ -21,22 +22,51 @@ set expandtab                       " use spaces, not tabs (optional)
 set nostartofline
 set mouse=a																											" Enable use of the mouse for all modes
 setlocal foldmethod=syntax                                      " Enable code folding
+" When editing a file, always jump to the last known cursor position.
+" Don't do it for commit messages, when the position is invalid, or when
+" inside an event handler (happens when dropping a file on gvim).
+augroup vimrcEx
+  autocmd!
+
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+augroup END
 
 "" Display
 set number 																											" Display line numbers on the left
 set ruler 																											" Display the cursor position on the last line of the screen or in the status line of a window
 set laststatus=2																								" Always display the status line, even if only one window is displayed
 set cmdheight=2																									" Set the command window height to 2 lines, to avoid many cases of having to 'press <Enter> to continue'
+set textwidth=120                                               " Make it obvious where 120 characters is
+set colorcolumn=+1                                              " Make it obvious where 120 characters is
+let g:html_indent_tags = 'li\|p'                                " Treat <li> and <p> tags like the block tags they are
+set splitbelow                                                  " Open new split panes to right and bottom, which feels more natural
+set splitright                                                  " Open new split panes to right and bottom, which feels more natural
+
+nnoremap <Left> :echoe "Use h"<CR>                              " Get off my lawn
+nnoremap <Right> :echoe "Use l"<CR>                             " Get off my lawn
+nnoremap <Up> :echoe "Use k"<CR>                                " Get off my lawn
+nnoremap <Down> :echoe "Use j"<CR>                              " Get off my lawn
 
 "" Searching
 set hlsearch                            												" highlight matches
 set incsearch                           												" incremental searching
 set ignorecase                          												" searches are case insensitive...
 set smartcase                           												" ... unless they contain at least one capital letter
-nnoremap <silent> <C-a> :nohl<CR><C-l>  " <Ctrl-a> redraws the screen and removes any search highlighting.
+nnoremap <silent> <F5> :nohl<CR><C-l>                          " <Ctrl-a> redraws the screen and removes any search highlighting.
 
-"" Use system clipboard
-set clipboard=unnamedplus
+"" Misc
+set spellfile=$HOME/.vim-spell-en.utf-8.add
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us  " automatically turn on spell-checking for Markdown file
+set complete+=kspell                                            " Autocomplete with dictionary words when spell check is on
+set clipboard=unnamedplus                                       " Use system clipboard
 
 "---------------------------------------------------------------
 ""           Plugins
@@ -64,6 +94,8 @@ Plug 'scrooloose/syntastic'                                     " Syntax checkin
 Plug 'tpope/vim-eunuch'                                         " Vim sugar for the UNIX shell commands that need it the most
 Plug 'Shougo/neocomplete.vim'                                   " As-you-type autocomplete
 Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi' " Tsuquyomi (typescript plugin) depends on vimproc
+Plug 'tpope/vim-fugitive'                                       " 'may very well be the best Git wrapper of all time'
+Plug 'tomlion/vim-solidity'                                     " Syntax files for Solidity, the contract-oriented programming language for Ethereum
 
 " General
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " General-purpose command-line fuzzy finder.
@@ -185,3 +217,28 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " set background=dark
 colorscheme onedark
 
+
+" format xml :.!xmllint --format -
+
+" Search lines in all open vim buffers
+function! s:line_handler(l)
+  let keys = split(a:l, ':\t')
+  exec 'buf' keys[0]
+  exec keys[1]
+  normal! ^zz
+endfunction
+
+function! s:buffer_lines()
+  let res = []
+  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
+    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+  endfor
+  return res
+endfunction
+
+command! FZFLines call fzf#run({
+\   'source':  <sid>buffer_lines(),
+\   'sink':    function('<sid>line_handler'),
+\   'options': '--extended --nth=3..',
+\   'down':    '60%'
+\})

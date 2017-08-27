@@ -83,7 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sudo='sudo '
-alias emacs='emacs -nw'
+alias dockerc='docker-compose'
+alias rsynco='rsync -arhvP'
 
 export NVM_DIR="/home/ntokozo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
