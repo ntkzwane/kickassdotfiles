@@ -1,20 +1,20 @@
 #!/bin/bash
 function lnvim {
-  ln -sf /home/ntokozo/.kickassconfigs/vim/vimrc /home/ntokozo/.vimrc
+  ln -sf $HOME/.kickassconfigs/vim/vimrc $HOME/.vimrc
 }
 
 function lnzsh {
-  ln -sf /home/ntokozo/.kickassconfigs/zsh/zshrc /home/ntokozo/.zshrc
+  ln -sf $HOME/.kickassconfigs/zsh/zshrc $HOME/.zshrc
 }
 
 function lnprofile {
-  ln -sf /home/ntokozo/.kickassconfigs/linux/profile /home/ntokozo/.profile
+  ln -sf $HOME/.kickassconfigs/linux/profile $HOME/.profile
 }
 
 function lni3wm {
-  mkdir -p /home/ntokozo/.config/i3status
-  ln -sf /home/ntokozo/.kickassconfigs/i3/config /home/ntokozo/.i3/config
-  ln -sf /home/ntokozo/.kickassconfigs/i3/i3status.conf /home/ntokozo/.config/i3status/config
+  mkdir -p $HOME/.config/i3status $HOME/.i3
+  ln -sf $HOME/.kickassconfigs/i3/config $HOME/.i3/config
+  ln -sf $HOME/.kickassconfigs/i3/i3status.conf $HOME/.config/i3status/config
 }
 
 lnvim
