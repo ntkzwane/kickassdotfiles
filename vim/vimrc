@@ -218,7 +218,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 colorscheme onedark
 
 
-" format xml :.!xmllint --format -
+" format xml  :.!xmllint --format -
+" format json :%!python -m json.tool
 
 " Search lines in all open vim buffers
 function! s:line_handler(l)

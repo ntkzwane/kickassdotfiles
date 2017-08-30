@@ -4,7 +4,9 @@ function lnvim {
 }
 
 function lnzsh {
-  ln -sf $HOME/.kickassconfigs/zsh/zshrc $HOME/.zshrc
+  mkdir -p $HOME/.oh-my-zsh
+  ln -sf $HOME/.kickassconfigs/oh-my-zsh/zshrc $HOME/.zshrc
+  ln -sf $HOME/.kickassconfigs/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
 }
 
 function lnprofile {

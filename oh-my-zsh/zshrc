@@ -49,7 +49,7 @@ ZSH_THEME="chuckbadass"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, thefuck, docker, docker-compose)
 
 # User configuration
 
@@ -116,3 +116,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Add `go` workspace directory
 export GOPATH=$HOME/Development/tools/Go
 
+
+eval $(thefuck --alias)
