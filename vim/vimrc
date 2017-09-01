@@ -63,8 +63,8 @@ set smartcase                           												" ... unless they contain at
 nnoremap <silent> <F5> :nohl<CR><C-l>                          " <Ctrl-a> redraws the screen and removes any search highlighting.
 
 "" Misc
-set spellfile=$HOME/.vim-spell-en.utf-8.add
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us  " automatically turn on spell-checking for Markdown file
+autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us  " automatically turn on spell-checking for Markdown file
 set complete+=kspell                                            " Autocomplete with dictionary words when spell check is on
 set clipboard=unnamedplus                                       " Use system clipboard
 

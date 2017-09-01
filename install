@@ -1,5 +1,7 @@
 #!/bin/bash
 function lnvim {
+  mkdir -p $HOME/.vim/spell
+  ln -sf $HOME/.kickassconfigs/vim/en.utf-8.add $HOME/.vim/spell/en.utf-8.add
   ln -sf $HOME/.kickassconfigs/vim/vimrc $HOME/.vimrc
 }
 
