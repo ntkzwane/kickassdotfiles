@@ -17,6 +17,7 @@ function lnprofile {
 
 function lni3wm {
   mkdir -p $HOME/.config/i3status $HOME/.i3
+  ln -sf $HOME/.kickassconfigs/i3/i3exit /usr/local/bin/i3exit
   ln -sf $HOME/.kickassconfigs/i3/config $HOME/.i3/config
   ln -sf $HOME/.kickassconfigs/i3/i3status.conf $HOME/.config/i3status/config
 }
