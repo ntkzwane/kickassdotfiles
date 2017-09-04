@@ -22,6 +22,11 @@ function lni3wm {
   ln -sf $HOME/.kickassconfigs/i3/i3status.conf $HOME/.config/i3status/config
 }
 
+function lngit {
+  ln -s $HOME/.kickassconfigs/git/gitconfig $HOME/.gitconfig
+  ln -s $HOME/.kickassconfigs/git/gitignore_global $HOME/.gitignore_global
+}
+
 lnvim
 lnzsh
 lnprofile
