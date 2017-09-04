@@ -88,6 +88,7 @@ alias rsynco='rsync -arhvP'
 
 export NVM_DIR="/home/ntokozo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -118,3 +119,4 @@ export GOPATH=$HOME/Development/tools/Go
 
 
 eval $(thefuck --alias)
+
