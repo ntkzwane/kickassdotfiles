@@ -6,7 +6,7 @@ function lnvim {
 }
 
 function lnzsh {
-  mkdir -p $HOME/.oh-my-zsh
+  mkdir -p $HOME/.oh-my-zsh/themes
   ln -sf $HOME/.kickassconfigs/oh-my-zsh/zshrc $HOME/.zshrc
   ln -sf $HOME/.kickassconfigs/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
 }
@@ -31,4 +31,5 @@ lnvim
 lnzsh
 lnprofile
 lni3wm
+lngit
 
