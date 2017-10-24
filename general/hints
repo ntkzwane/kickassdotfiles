@@ -18,7 +18,7 @@ sudo mount /dev/sdb[x] /media/usb
 sudo umount /media/usb
 
 # add stuff to path, and thus dmenu
--ln -s ./program.sh /usr/bin/shortcutname
+ln -s ./program.sh /usr/bin/shortcutname
 
 # removing desktop window when launching nautilus
 gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -44,3 +44,4 @@ nmtui
 
 # mount shared folder virtual box
 sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) shared_folder ~/Guest/Directory
+

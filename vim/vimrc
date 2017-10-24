@@ -21,7 +21,7 @@ set nojoinspaces                                                " Use one space,
 " coming from other editors would expect.
 set nostartofline
 set mouse=a																											" Enable use of the mouse for all modes
-setlocal foldmethod=syntax                                      " Enable code folding
+setlocal foldmethod=manual                                      " Enable code folding
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim).
