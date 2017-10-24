@@ -1,10 +1,12 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="chuckbadass"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -72,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -85,6 +87,7 @@ source $ZSH/oh-my-zsh.sh
 alias sudo='sudo '
 alias dockerc='docker-compose'
 alias rsynco='rsync -arhvP'
+alias findit='ag --nobreak --nonumbers --noheading . | fzf' # respects .agignore and .gitignore
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -98,24 +101,19 @@ export ANDROID_HOME=~/Development/tools/android-sdk-linux
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-# this fixes the bug with the unity-control-center not rendering properly
+# this fixes the bug with the gnome-control-center not rendering properly
 if [ $XDG_CURRENT_DESKTOP="i3" ]; then
    XDG_CURRENT_DESKTOP="Unity"
 fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/shims:$PATH"
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-## FZF fuzzy finder
-# Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-# To apply the command to CTRL-T as well
+export FZF_DEFAULT_OPTS='--reverse -m'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Add `go` workspace directory
-export GOPATH=$HOME/Development/tools/Go
 
 eval $(thefuck --alias)
 
