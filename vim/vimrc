@@ -87,13 +87,14 @@ Plug 'kien/rainbow_parentheses.vim'                             " Colourful pare
 Plug 'ntpeters/vim-better-whitespace'                           " Highlight trailing whitespace
 Plug 'valloric/MatchTagAlways'                                  " Highlight matching tags
 Plug 'sheerun/vim-polyglot'                                     " Language support
-Plug 'suan/vim-instant-markdown'                                " Instant markdown in the browser (also install global npm package)
+Plug 'suan/vim-instant-markdown'                                " Instant markdown in the browser (also install global npm 'instant-markdown-d' package)
 Plug 'tomtom/tcomment_vim'                                      " Easier commenting
 Plug 'gorodinskiy/vim-coloresque'                               " A css/less/sass/html color preview
 Plug 'scrooloose/syntastic'                                     " Syntax checking for various languages
 Plug 'tpope/vim-eunuch'                                         " Vim sugar for the UNIX shell commands that need it the most
 Plug 'Shougo/neocomplete.vim'                                   " As-you-type autocomplete
 Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi' " Tsuquyomi (typescript plugin) depends on vimproc
+Plug 'leafgarland/typescript-vim'                               " Sytax highlighting and compilation of typescript
 Plug 'tpope/vim-fugitive'                                       " 'may very well be the best Git wrapper of all time'
 Plug 'tomlion/vim-solidity'                                     " Syntax files for Solidity, the contract-oriented programming language for Ethereum
 
@@ -218,7 +219,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 colorscheme onedark
 
 
-" format xml  :.!xmllint --format -
+" format xml  :%!xmllint --format -                               " part of the libxml2-utils package
 " format json :%!python -m json.tool
 
 " Search lines in all open vim buffers

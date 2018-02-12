@@ -5,6 +5,10 @@ function lnvim {
   ln -sf $HOME/.kickassconfigs/vim/vimrc $HOME/.vimrc
 }
 
+function fzf {
+  ln -s $HOME/.kickassconfigs/ag/agignore $HOME/.agignore
+}
+
 function lnzsh {
   mkdir -p $HOME/.oh-my-zsh/themes
   ln -sf $HOME/.kickassconfigs/oh-my-zsh/zshrc $HOME/.zshrc
