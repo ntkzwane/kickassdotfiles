@@ -1,17 +1,12 @@
 #!/bin/zsh
 
-if [ $# -eq 0 ]; then
-	echo "Usage: $0 up|down";
-	exit 1;
-fi
-
 BRIGHTNESS=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 
-if [ "$1" '==' "up" ]; then
+if [ "$1" '==' "+" ] && (( $BRIGHTNESS < 1.0 )); then
   xrandr --output eDP-1 --brightness $(($BRIGHTNESS + 0.1))
-elif [ "$1" '==' "down" ]; then
+elif [ "$1" '==' "-" ] && (( $BRIGHTNESS > 0.0 )); then
   xrandr --output eDP-1 --brightness $(($BRIGHTNESS - 0.1))
-elif [ "$1" '==' "reset" ]; then
+else
   xrandr --output eDP-1 --brightness 1.0
 fi
 

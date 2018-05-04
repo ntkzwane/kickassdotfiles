@@ -1,39 +1,66 @@
 #!/bin/bash
-function lnvim {
+
+# Sanity check
+./general/confirm.sh "Bruv, are you sure you want to do this? Current config that isn't managed by me will be overwitten [y/N] "
+RESULT=$?
+[ $RESULT -ne 0 ] && exit 0
+
+# Proceed with the installation
+KICK_ASS_CONFIGS_HOME=$HOME/.kickassconfigs
+
+function log {
+  echo "~ $1"
+}
+
+function configureVim {
+  log "vim"
   mkdir -p $HOME/.vim/spell
-  ln -sf $HOME/.kickassconfigs/vim/en.utf-8.add $HOME/.vim/spell/en.utf-8.add
-  ln -sf $HOME/.kickassconfigs/vim/vimrc $HOME/.vimrc
+  ln -sf $KICK_ASS_CONFIGS_HOME/vim/en.utf-8.add $HOME/.vim/spell/en.utf-8.add
+  ln -sf $KICK_ASS_CONFIGS_HOME/vim/vimrc $HOME/.vimrc
 }
 
-function fzf {
-  ln -s $HOME/.kickassconfigs/ag/agignore $HOME/.agignore
+function configureFzf {
+  log "fzf"
+  ln -sf $KICK_ASS_CONFIGS_HOME/ag/agignore $HOME/.agignore
 }
 
-function lnzsh {
+function configureZsh {
+  log "zsh"
   mkdir -p $HOME/.oh-my-zsh/themes
-  ln -sf $HOME/.kickassconfigs/oh-my-zsh/zshrc $HOME/.zshrc
-  ln -sf $HOME/.kickassconfigs/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
+  ln -sf $KICK_ASS_CONFIGS_HOME/oh-my-zsh/zshrc $HOME/.zshrc
+  ln -sf $KICK_ASS_CONFIGS_HOME/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
 }
 
-function lnprofile {
-  ln -sf $HOME/.kickassconfigs/linux/profile $HOME/.profile
+function configureProfile {
+  log "profile"
+  ln -sf $KICK_ASS_CONFIGS_HOME/linux/profile $HOME/.profile
 }
 
-function lni3wm {
+function configureI3wm {
+  log "i3-wm"
   mkdir -p $HOME/.config/i3status $HOME/.i3
-  sudo ln -sf $HOME/.kickassconfigs/i3/i3exit /usr/local/bin/i3exit
-  ln -sf $HOME/.kickassconfigs/i3/config $HOME/.i3/config
-  ln -sf $HOME/.kickassconfigs/i3/i3status.conf $HOME/.config/i3status/config
+  sudo ln -sf $KICK_ASS_CONFIGS_HOME/i3/i3exit /usr/local/bin/i3exit
+  ln -sf $KICK_ASS_CONFIGS_HOME/i3/config $HOME/.i3/config
+  ln -sf $KICK_ASS_CONFIGS_HOME/i3/i3status.conf $HOME/.config/i3status/config
 }
 
-function lngit {
-  ln -s $HOME/.kickassconfigs/git/gitconfig $HOME/.gitconfig
-  ln -s $HOME/.kickassconfigs/git/gitignore_global $HOME/.gitignore_global
+function configureGit {
+  log "git"
+  ln -sf $KICK_ASS_CONFIGS_HOME/git/gitconfig $HOME/.gitconfig
+  ln -sf $KICK_ASS_CONFIGS_HOME/git/gitignore_global $HOME/.gitignore_global
 }
 
-lnvim
-lnzsh
-lnprofile
-lni3wm
-lngit
+function installDiffSoFancy {
+  log "diff-so-fancy"
+  sudo ln -sf $KICK_ASS_CONFIGS_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+}
 
+configureFzf
+configureVim
+configureZsh
+configureProfile
+configureI3wm
+configureGit
+installDiffSoFancy
+
+exit 0

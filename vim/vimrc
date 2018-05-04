@@ -75,9 +75,10 @@ set clipboard=unnamedplus                                       " Use system cli
 call plug#begin('~/.vim/plugged')
 
 " Color schemes
-Plug 'joshdick/onedark.vim'                                     " onedark
-"Plug 'NLKNguyen/papercolor-theme'                              " PaperColor
-"Plug 'gosukiwi/vim-atom-dark'
+Plug 'kristijanhusak/vim-hybrid-material'                      " hybrid material
+" Plug 'joshdick/onedark.vim'                                    " onedark
+" Plug 'NLKNguyen/papercolor-theme'                              " papercolor
+" Plug 'gosukiwi/vim-atom-dark'
 
 " Aesthetics
 Plug 'vim-airline/vim-airline'                                  " A cooler status bar at the bottom
@@ -216,7 +217,9 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "---------------------------------------------------------------
 
 " set background=dark
-colorscheme onedark
+" colorscheme onedark
+set background=dark
+colorscheme hybrid_material
 
 
 " format xml  :%!xmllint --format -                               " part of the libxml2-utils package

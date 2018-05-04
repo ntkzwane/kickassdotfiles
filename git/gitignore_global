@@ -1,2 +1,6 @@
 # vim temporary files
 *.swp
+
+# intellij files
+.idea/
+*.iml

@@ -65,9 +65,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR='vim -u NONE'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR=vim
 # fi
 
 # Compilation flags
@@ -90,6 +90,7 @@ alias rsynco='rsync -arhvP'
 alias findit='ag --nobreak --nonumbers --noheading . | fzf' # respects .agignore and .gitignore
 alias untarit='tar -zxvf'
 alias tarit='tar -zcvf'
+alias gitvlog='git log | vim -R -'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -113,5 +114,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 source <(kubectl completion zsh)
 
+source <(cat $HOME/Development/bin/env) # load all personal environment variables
 export PATH=$PATH:$HOME/Development/bin # add all personal scripts to path
 
