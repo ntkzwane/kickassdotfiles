@@ -6,7 +6,7 @@ FILE_NAME = cv_12
 
 .PHONY: all view
 
-all: $(FILE_NAME).pdf 
+all: $(FILE_NAME).pdf
 	make $(FILE_NAME).pdf
 
 view: $(FILE_NAME).pdf

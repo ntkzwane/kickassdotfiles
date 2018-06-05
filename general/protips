@@ -1,8 +1,0 @@
-# fake smtp server
-python -m smtpd -n -c DebuggingServer localhost:2525
-
-# some nifty git config hints
-https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
-
-# mysql copy db into another
-mysqldump -h127.0.0.1 -uroot -p<password> <sourcedb> | mysql -h127.0.0.1 -uroot -p<password> <destinationdb>;
