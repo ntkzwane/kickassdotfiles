@@ -21,3 +21,5 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+
+[ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
