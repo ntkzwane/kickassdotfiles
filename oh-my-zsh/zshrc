@@ -51,8 +51,8 @@ ZSH_THEME="chuckbadass"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, thefuck, docker, docker-compose, adb)
 
+plugins=(git, docker, docker-compose, adb, helm)
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -90,13 +90,12 @@ alias rsynco='rsync -arhvP'
 alias findit='ag --nobreak --nonumbers --noheading . | fzf' # respects .agignore and .gitignore
 alias untarit='tar -zxvf'
 alias tarit='tar -zcvf'
+alias yolo='rm -rf node_modules && npm install'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export NUTCH_JAVA_HOME=$JAVA_HOME
 export ANDROID_HOME=~/Development/tools/android-sdk-linux
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
@@ -112,7 +111,10 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--reverse -m'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-source <(kubectl completion zsh)
-
 source <(cat $HOME/Development/bin/env) # load all personal environment variables
 export PATH=$PATH:$HOME/Development/bin # add all personal scripts to path
+
+# Completion
+source <(kubectl completion zsh)
+
+[ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
