@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KICK_ASS_CONFIGS_HOME=$HOME/.kickassconfigs
+KICK_ASS_DOTFILES_HOME=$HOME/.kickassdotfiles
 
 function log {
   echo "~ $1"
@@ -9,51 +9,52 @@ function log {
 function configureVim {
   log "vim"
   mkdir -p $HOME/.vim/spell
-  ln -sf $KICK_ASS_CONFIGS_HOME/vim/en.utf-8.add $HOME/.vim/spell/en.utf-8.add
-  ln -sf $KICK_ASS_CONFIGS_HOME/vim/vimrc $HOME/.vimrc
+  ln -sf $KICK_ASS_DOTFILES_HOME/vim/en.utf-8.add $HOME/.vim/spell/en.utf-8.add
+  ln -sf $KICK_ASS_DOTFILES_HOME/vim/vimrc $HOME/.vimrc
 }
 
 function configureFzf {
   log "fzf"
-  ln -sf $KICK_ASS_CONFIGS_HOME/ag/agignore $HOME/.agignore
+  ln -sf $KICK_ASS_DOTFILES_HOME/ag/agignore $HOME/.agignore
 }
 
 function configureZsh {
   log "zsh"
   mkdir -p $HOME/.oh-my-zsh/themes
-  ln -sf $KICK_ASS_CONFIGS_HOME/oh-my-zsh/zshrc $HOME/.zshrc
-  ln -sf $KICK_ASS_CONFIGS_HOME/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
+  ln -sf $KICK_ASS_DOTFILES_HOME/oh-my-zsh/zshrc $HOME/.zshrc
+  ln -sf $KICK_ASS_DOTFILES_HOME/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
 }
 
 function configureProfile {
   log "profile"
-  ln -sf $KICK_ASS_CONFIGS_HOME/linux/profile $HOME/.profile
+  ln -sf $KICK_ASS_DOTFILES_HOME/linux/profile $HOME/.profile
 }
 
 function configureI3wm {
   log "i3-wm"
   mkdir -p $HOME/.config/i3status $HOME/.i3
-  sudo ln -sf $KICK_ASS_CONFIGS_HOME/i3/i3exit /usr/local/bin/i3exit
-  ln -sf $KICK_ASS_CONFIGS_HOME/i3/config $HOME/.i3/config
-  ln -sf $KICK_ASS_CONFIGS_HOME/i3/i3status.conf $HOME/.config/i3status/config
+  sudo ln -sf $KICK_ASS_DOTFILES_HOME/i3/i3exit /usr/local/bin/i3exit
+  ln -sf $KICK_ASS_DOTFILES_HOME/i3/config $HOME/.i3/config
+  ln -sf $KICK_ASS_DOTFILES_HOME/i3/i3status.conf $HOME/.config/i3status/config
+  sudo rm -f /etc/.i3status.conf
 }
 
 function configureGit {
   log "git"
-  ln -sf $KICK_ASS_CONFIGS_HOME/git/gitconfig $HOME/.gitconfig
-  ln -sf $KICK_ASS_CONFIGS_HOME/git/gitignore_global $HOME/.gitignore_global
+  ln -sf $KICK_ASS_DOTFILES_HOME/git/gitconfig $HOME/.gitconfig
+  ln -sf $KICK_ASS_DOTFILES_HOME/git/gitignore_global $HOME/.gitignore_global
 }
 
 function configureVSCode {
   log "vscode"
   mkdir -p $HOME/.config/Code/User
-  ln -sf $KICK_ASS_CONFIGS_HOME/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
-  ln -sf $KICK_ASS_CONFIGS_HOME/vscode/settings.json $HOME/.config/Code/User/settings.json
+  ln -sf $KICK_ASS_DOTFILES_HOME/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
+  ln -sf $KICK_ASS_DOTFILES_HOME/vscode/settings.json $HOME/.config/Code/User/settings.json
 }
 
 function configureDiffSoFancy {
   log "diff-so-fancy"
-  sudo ln -sf $KICK_ASS_CONFIGS_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+  sudo ln -sf $KICK_ASS_DOTFILES_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
 }
 
 case "$1" in
@@ -81,9 +82,14 @@ case "$1" in
   vscode)
     configureVSCode
     ;;
+  -h|h|help|--help)
+    echo "Usage:
+      ./install             # Install all config files (will overwrite any existing configuration)
+      ./install tool-name   # Install configuration for 'tool-name'"
+    ;;
   *)
     # Sanity check
-    ./general/confirm.sh "Bruv, are you sure you want to do this? Current config that isn't managed by me will be overwitten [y/N] "
+    ./misc/confirm.sh "Bruv, are you sure you want to do this? Current config that isn't managed by me will be overwitten [y/N] "
     RESULT=$?
     [ $RESULT -ne 0 ] && exit 0
 
