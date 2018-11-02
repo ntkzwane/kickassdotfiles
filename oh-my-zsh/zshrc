@@ -91,6 +91,8 @@ alias findit='ag --nobreak --nonumbers --noheading . | fzf' # respects .agignore
 alias untarit='tar -zxvf'
 alias tarit='tar -zcvf'
 alias yolo='rm -rf node_modules && npm install'
+alias yoyo='rm -rf node_modules && yarn'
+alias man='tldr'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -118,3 +120,8 @@ export PATH=$PATH:$HOME/Development/bin # add all personal scripts to path
 source <(kubectl completion zsh)
 
 [ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
+
+# Rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+

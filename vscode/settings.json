@@ -1,5 +1,14 @@
 {
-    "workbench.colorTheme": "Abyss",
     "vim.useSystemClipboard": true,
-    "search.location": "panel"
+    "search.location": "panel",
+    "editor.tabSize": 4,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 0,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    "workbench.colorTheme": "Abyss",
+    "tslint.alwaysShowStatus": true,
+    "editor.rulers": [
+        120
+    ],
+    "scm.alwaysShowActions": true
 }
