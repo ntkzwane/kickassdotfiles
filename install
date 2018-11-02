@@ -35,9 +35,17 @@ function configureI3wm {
   log "i3-wm"
   mkdir -p $HOME/.config/i3status $HOME/.i3
   sudo ln -sf $KICK_ASS_DOTFILES_HOME/i3/i3exit /usr/local/bin/i3exit
-  ln -sf $KICK_ASS_DOTFILES_HOME/i3/config $HOME/.i3/config
   ln -sf $KICK_ASS_DOTFILES_HOME/i3/i3status.conf $HOME/.config/i3status/config
+  ln -sf $KICK_ASS_DOTFILES_HOME/i3/config $HOME/.i3/config
   sudo rm -f /etc/.i3status.conf
+}
+
+function configureSwaywm {
+  log "sway-wm"
+  mkdir -p $HOME/.config/i3status $HOME/.config/sway $HOME/.i3
+  sudo ln -sf $KICK_ASS_DOTFILES_HOME/i3/i3exit /usr/local/bin/i3exit
+  ln -sf $KICK_ASS_DOTFILES_HOME/i3/i3status.conf $HOME/.config/i3status/config
+  ln -sf $KICK_ASS_DOTFILES_HOME/i3/config $HOME/.config/sway/config
 }
 
 function configureGit {
@@ -58,6 +66,11 @@ function configureDiffSoFancy {
   sudo ln -sf $KICK_ASS_DOTFILES_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
 }
 
+function configureCompton {
+  log "compton"
+  ln -sf $KICK_ASS_DOTFILES_HOME/compton/compton.conf $HOME/.compton.conf
+}
+
 case "$1" in
   fzf)
     configureFzf
@@ -74,6 +87,9 @@ case "$1" in
   i3)
     configureI3wm
     ;;
+  sway)
+    configureSwaywm
+    ;;
   git)
     configureGit
     ;;
@@ -82,6 +98,9 @@ case "$1" in
     ;;
   vscode)
     configureVSCode
+    ;;
+  compton)
+    configureCompton
     ;;
   -h|h|help|--help)
     echo "Usage:
@@ -100,9 +119,11 @@ case "$1" in
     configureZsh
     configureProfile
     configureI3wm
+    configureSwaywm
     configureGit
     configureDiffSoFancy
     configureVSCode
+    configureCompton
     ;;
 esac
 

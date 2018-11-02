@@ -1,6 +1,11 @@
 "---------------------------------------------------------------
 ""           General Settings
 "---------------------------------------------------------------
+
+" Disable safewrite so that filewatchers can detect changes.
+" Right now specifically for parceljs. Close after this feature is complete https://github.com/parcel-bundler/parcel/issues/221
+set backupcopy=yes
+
 set shell=/bin/zsh
 
 set encoding=utf-8
@@ -95,7 +100,7 @@ Plug 'scrooloose/syntastic'                                     " Syntax checkin
 Plug 'tpope/vim-eunuch'                                         " Vim sugar for the UNIX shell commands that need it the most
 Plug 'Shougo/neocomplete.vim'                                   " As-you-type autocomplete
 Plug 'Shougo/vimproc', {'do' : 'make'} | Plug 'Quramy/tsuquyomi' " Tsuquyomi (typescript plugin) depends on vimproc
-Plug 'leafgarland/typescript-vim'                               " Sytax highlighting and compilation of typescript
+Plug 'leafgarland/typescript-vim'                               " Syntax highlighting and compilation of typescript
 Plug 'tpope/vim-fugitive'                                       " 'may very well be the best Git wrapper of all time'
 Plug 'tomlion/vim-solidity'                                     " Syntax files for Solidity, the contract-oriented programming language for Ethereum
 

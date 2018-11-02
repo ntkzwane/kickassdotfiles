@@ -260,4 +260,19 @@ bar {
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec "dmenu_run -i -nf '#BBBBBB' -nb '#222222' -sb '#563D7C' -sf '#EEEEEE' -fn 'monospace-10'"
+# bindsym $mod+d exec rofi -show run -modi run -location 1 -width 100 \
+# 		 -lines 2 -line-margin 0 -line-padding 1 \
+# 		 -separator-style none -font "mono 10" -columns 9 -bw 0 \
+# 		 -disable-history \
+# 		 -hide-scrollbar \
+# 		 -color-window "#222222, #222222, #b1b4b3" \
+# 		 -color-normal "#222222, #b1b4b3, #222222, #005577, #b1b4b3" \
+# 		 -color-active "#222222, #b1b4b3, #222222, #007763, #b1b4b3" \
+# 		 -color-urgent "#222222, #b1b4b3, #222222, #77003d, #b1b4b3" \
+# 		 -kb-row-select "Tab" -kb-row-tab ""
+
+# configure tile transparency (depends on compton package)
+exec compton --config /home/ntokozo/.compton.conf
+# configure window background (depends on hsetroot package - xsetroot not compatible with compton)
+exec --no-startup-id hsetroot -solid "#0b0013"
 
