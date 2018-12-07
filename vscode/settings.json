@@ -10,5 +10,9 @@
     "editor.rulers": [
         120
     ],
-    "scm.alwaysShowActions": true
+    "scm.alwaysShowActions": true,
+    "files.trimTrailingWhitespace": true,
+    "trailing-spaces.saveAfterTrim": true,
+    "trailing-spaces.trimOnSave": true,
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }

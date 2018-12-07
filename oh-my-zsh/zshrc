@@ -93,12 +93,14 @@ alias tarit='tar -zcvf'
 alias yolo='rm -rf node_modules && npm install'
 alias yoyo='rm -rf node_modules && yarn'
 alias man='tldr'
+alias ktl='kubectl'
+alias vscode='vscode --disable-gpu --disable-gpu-compositing' # temprary workaround to https://github.com/Microsoft/vscode/issues/28709
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export ANDROID_HOME=~/Development/tools/android-sdk-linux
+export ANDROID_HOME=$HOME/Development/tools/android-sdk-linux
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
@@ -116,12 +118,19 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 source <(cat $HOME/Development/bin/env) # load all personal environment variables
 export PATH=$PATH:$HOME/Development/bin # add all personal scripts to path
 
-# Completion
-source <(kubectl completion zsh)
-
 [ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
 
 # Rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
+# Snap
+export PATH="$PATH:/snap/bin"
+
+# if microk8s is not enabled, use kubectl binary
+if ! command kubectl > /dev/null 2> /dev/null ; then
+  export PATH="$PATH:$HOME/Development/tools/raw/kubectl"
+fi
+
+# Completion
+source <(kubectl completion zsh)
