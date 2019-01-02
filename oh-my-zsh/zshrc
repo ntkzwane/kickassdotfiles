@@ -120,10 +120,6 @@ export PATH=$PATH:$HOME/Development/bin # add all personal scripts to path
 
 [ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
 
-# Rbenv
-export PATH="$PATH:$HOME/.rbenv/bin"
-eval "$(rbenv init -)"
-
 # Snap
 export PATH="$PATH:/snap/bin"
 
