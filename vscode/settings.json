@@ -14,5 +14,8 @@
     "files.trimTrailingWhitespace": true,
     "trailing-spaces.saveAfterTrim": true,
     "trailing-spaces.trimOnSave": true,
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.autoSave": "off",
+    "prettier.singleQuote": true,
+    "editor.fontSize": 16
 }

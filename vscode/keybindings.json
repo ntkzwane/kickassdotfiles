@@ -118,7 +118,7 @@
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+f6",
+        "key": "shift+f6",
         "command": "editor.action.rename",
         "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
     },
@@ -128,7 +128,7 @@
         "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+f6",
+        "key": "shift+f6",
         "command": "debug.renameWatchExpression",
         "when": "watchExpressionsFocused"
     },
@@ -138,7 +138,7 @@
         "when": "watchExpressionsFocused"
     },
     {
-        "key": "ctrl+f6",
+        "key": "shift+f6",
         "command": "debug.setVariable",
         "when": "variablesFocused"
     },
@@ -148,7 +148,7 @@
         "when": "variablesFocused"
     },
     {
-        "key": "ctrl+f6",
+        "key": "shift+f6",
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
@@ -257,5 +257,25 @@
         "key": "ctrl+k ctrl+[",
         "command": "-editor.foldRecursively",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+f12",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+alt+b",
+        "command": "editor.action.peekImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+f12",
+        "command": "-editor.action.peekImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
     }
 ]

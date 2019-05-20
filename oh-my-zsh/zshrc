@@ -52,7 +52,7 @@ ZSH_THEME="chuckbadass"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git, docker, docker-compose, adb, helm)
+plugins=(helm)
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -90,11 +90,12 @@ alias rsynco='rsync -arhvP'
 alias findit='ag --nobreak --nonumbers --noheading . | fzf' # respects .agignore and .gitignore
 alias untarit='tar -zxvf'
 alias tarit='tar -zcvf'
-alias yolo='set -ex && rm -rf node_modules && npm install && set +ex'
-alias yoyo='set -ex && rm -rf node_modules && yarn && set +ex'
+alias yoyo='rm -rf node_modules && yarn'
+alias yolo='rm -rf node_modules && npm install'
 alias man='tldr'
 alias ktl='kubectl'
-alias vscode='vscode --disable-gpu --disable-gpu-compositing' # temprary workaround to https://github.com/Microsoft/vscode/issues/28709
+alias vscode='code'
+alias cav-my-land='nmap -sn' # usage cav-my-land 192.168.1.0/24
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -102,6 +103,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export ANDROID_HOME=$HOME/Development/tools/android-sdk-linux
 export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/tools/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # this fixes the bug with the gnome-control-center not rendering properly
@@ -133,4 +135,6 @@ source <(kubectl completion zsh)
 
 # Fix broken pip3 https://github.com/pypa/pipenv/issues/2095#issuecomment-385598592
 export PATH="${HOME}/.local/bin:$PATH"
+
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
