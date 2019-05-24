@@ -1,5 +1,19 @@
 {
     "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before" : ["u"],
+            "commands" : [
+                "undo"
+            ]
+        },
+        {
+            "before" : ["<C-r>"],
+            "commands" : [
+                "redo"
+            ]
+        }
+    ],
     "search.location": "panel",
     "editor.tabSize": 4,
     "typescript.updateImportsOnFileMove.enabled": "always",
@@ -17,5 +31,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "files.autoSave": "off",
     "prettier.singleQuote": true,
-    "editor.fontSize": 16
+    "editor.fontSize": 16,
+    "window.title": "${activeEditorLong}${separator}${rootName}"
 }
