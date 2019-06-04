@@ -2,14 +2,18 @@
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindings": [
         {
-            "before" : ["u"],
-            "commands" : [
+            "before": [
+                "u"
+            ],
+            "commands": [
                 "undo"
             ]
         },
         {
-            "before" : ["<C-r>"],
-            "commands" : [
+            "before": [
+                "<C-r>"
+            ],
+            "commands": [
                 "redo"
             ]
         }
