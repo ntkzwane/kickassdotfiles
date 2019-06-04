@@ -111,6 +111,7 @@ Plug 'jistr/vim-nerdtree-tabs'                                  " Making NERDTre
 Plug 'Xuyuanp/nerdtree-git-plugin'                              " Making NERDTree play with GIT
 Plug 'matze/vim-move'                                           " Move line(s) up and down
 Plug 'tpope/vim-pathogen'
+Plug 'chrisbra/recover.vim'
 
 call plug#end()
 

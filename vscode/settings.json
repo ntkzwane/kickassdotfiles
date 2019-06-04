@@ -15,7 +15,7 @@
         }
     ],
     "search.location": "panel",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.zoomLevel": 0,
     "tslint.alwaysShowRuleFailuresAsWarnings": true,
@@ -32,5 +32,7 @@
     "files.autoSave": "off",
     "prettier.singleQuote": true,
     "editor.fontSize": 16,
-    "window.title": "${activeEditorLong}${separator}${rootName}"
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single"
 }
