@@ -36,7 +36,6 @@
     "files.autoSave": "off",
     "prettier.singleQuote": true,
     "editor.fontSize": 16,
-    "window.title": "${activeEditorLong}${separator}${rootName}",
     "javascript.preferences.quoteStyle": "single",
     "typescript.preferences.quoteStyle": "single"
 }
