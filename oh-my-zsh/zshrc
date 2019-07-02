@@ -137,4 +137,5 @@ source <(kubectl completion zsh)
 export PATH="${HOME}/.local/bin:$PATH"
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+export PATH="$PATH:$(yarn global bin)"
 
