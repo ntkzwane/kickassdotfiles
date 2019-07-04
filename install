@@ -59,7 +59,7 @@ function configureVSCode {
   mkdir -p $HOME/.config/Code/User/snippets
   ln -sf $KICK_ASS_DOTFILES_HOME/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
   ln -sf $KICK_ASS_DOTFILES_HOME/vscode/settings.json $HOME/.config/Code/User/settings.json
-  ln -sf $KICK_ASS_DOTFILES_HOME/vscode/snippets/ $HOME/.config/Code/User/snippets
+  ln -sf $KICK_ASS_DOTFILES_HOME/vscode/snippets/* $HOME/.config/Code/User/snippets
 
   # install extensions
   cd vscode
