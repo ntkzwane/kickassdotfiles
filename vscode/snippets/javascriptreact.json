@@ -37,5 +37,21 @@
 			"",
 		],
 		"description": "Create a react functional component"
-	}
+	},
+	"Test describe block": {
+		"prefix": "describe",
+		"body": [
+			"describe('$1', () => {",
+			"\t$2",
+			"});",
+		]
+	},
+	"Test it block": {
+		"prefix": "it",
+		"body": [
+			"it('$1', () => {",
+			"\t$2",
+			"});",
+		]
+	},
 }

@@ -20,6 +20,7 @@
     ],
     "search.location": "panel",
     "editor.tabSize": 2,
+    "editor.snippetSuggestions": "top",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.zoomLevel": 0,
     "tslint.alwaysShowRuleFailuresAsWarnings": true,
