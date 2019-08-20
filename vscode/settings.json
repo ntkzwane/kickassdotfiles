@@ -21,9 +21,11 @@
     "search.location": "panel",
     "editor.tabSize": 2,
     "editor.snippetSuggestions": "top",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "java.home": "/Users/nzwane/.jabba/jdk/default/Contents/Home/",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.zoomLevel": 0,
-    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    "tslint.alwaysShowRuleFailuresAsWarnings": false,
     "workbench.colorTheme": "Abyss",
     "tslint.alwaysShowStatus": true,
     "editor.rulers": [
@@ -38,5 +40,9 @@
     "prettier.singleQuote": true,
     "editor.fontSize": 16,
     "javascript.preferences.quoteStyle": "single",
-    "typescript.preferences.quoteStyle": "single"
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.packageManager": "yarn",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
