@@ -277,5 +277,9 @@
         "key": "ctrl+shift+f12",
         "command": "-editor.action.peekImplementation",
         "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "alt+m",
+        "command": "extension.changeCase.commands"
     }
 ]

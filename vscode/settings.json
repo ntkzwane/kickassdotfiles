@@ -22,9 +22,9 @@
     "editor.tabSize": 2,
     "editor.snippetSuggestions": "top",
     "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "java.home": "/Users/nzwane/.jabba/jdk/default/Contents/Home/",
+    "java.home": "/home/ntokozo/.jabba/jdk/default/",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "tslint.alwaysShowRuleFailuresAsWarnings": false,
     "workbench.colorTheme": "Abyss",
     "editor.rulers": [
@@ -42,5 +42,13 @@
     "tslint.packageManager": "yarn",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "scm.defaultViewMode": "tree"
+    "scm.defaultViewMode": "tree",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false
 }
