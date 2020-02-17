@@ -106,5 +106,11 @@
 
         ],
         "description": "React useReducer() hook"
+	},
+	"Await on Promise": {
+		"prefix": "awaiton",
+		"body": [
+			"const [$1Error, $1] = await on($2);"
+		]
 	}
 }
