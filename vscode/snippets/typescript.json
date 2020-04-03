@@ -94,7 +94,7 @@
 		"const $1 = useRef($2)$0"
     ],
     "description": "React useRef() hook"
-},
+  },
 	"useReducer": {
     "prefix": "urdh",
     "body": [
@@ -106,5 +106,11 @@
 
         ],
         "description": "React useReducer() hook"
+	},
+	"Await on Promise": {
+		"prefix": "awaiton",
+		"body": [
+			"const [$1Error, $1] = await on($2);"
+		]
 	}
 }
