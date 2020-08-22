@@ -174,7 +174,7 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 """ gitNERDTree
-let g:NERDTreeIndicatorMapCustom = {
+let g:NerdTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "~",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
