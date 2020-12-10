@@ -23,7 +23,7 @@ function configureFzf {
 
 function configureZsh {
   log "zsh"
-  mkdir -p $HOME/.oh-my-zsh/themes
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   ln -sf $KICK_ASS_DOTFILES_HOME/oh-my-zsh/zshrc $HOME/.zshrc
   ln -sf $KICK_ASS_DOTFILES_HOME/oh-my-zsh/chuckbadass.zsh-theme $HOME/.oh-my-zsh/themes/chuckbadass.zsh-theme
 }
