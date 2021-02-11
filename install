@@ -69,6 +69,12 @@ function configureVSCode {
   cd ..
 }
 
+function configureMotion {
+  log "motion"
+  mkdir -p $HOME/.motion
+  ln -sf $KICK_ASS_DOTFILES_HOME/motion/motion.conf $HOME/.motion/motion.conf
+}
+
 function configureDiffSoFancy {
   log "diff-so-fancy"
   sudo ln -sf $KICK_ASS_DOTFILES_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
@@ -109,6 +115,9 @@ case "$1" in
     ;;
   compton)
     configureCompton
+    ;;
+  motion)
+    configureMotion
     ;;
   -h|h|help|--help)
     echo "Usage:
