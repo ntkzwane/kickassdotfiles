@@ -52,13 +52,6 @@ function configureGit {
   ln -sf $KICK_ASS_DOTFILES_HOME/git/gitignore_global $HOME/.gitignore_global
 }
 
-function configureVSCode {
-  log "vscode"
-  mkdir -p $HOME/.config/Code/User/snippets
-  ln -sf $KICK_ASS_DOTFILES_HOME/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
-  ln -sf $KICK_ASS_DOTFILES_HOME/vscode/snippets/* $HOME/.config/Code/User/snippets
-}
-
 function configureMotion {
   log "motion"
   mkdir -p $HOME/.motion
@@ -92,9 +85,6 @@ case "$1" in
   diffsofancy)
     configureDiffSoFancy
     ;;
-  vscode)
-    configureVSCode
-    ;;
   motion)
     configureMotion
     ;;
@@ -117,7 +107,6 @@ case "$1" in
     configureI3wm
     configureGit
     configureDiffSoFancy
-    configureVSCode
     ;;
 esac
 
