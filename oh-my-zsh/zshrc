@@ -101,15 +101,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export ANDROID_HOME=$HOME/Development/tools/android-sdk-linux
+export ANDROID_HOME=$HOME/Development/tools/android-sdk
+export PATH=${PATH}:${ANDROID_HOME}/emulator
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/tools/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # this fixes the bug with the gnome-control-center not rendering properly
-if [ $XDG_CURRENT_DESKTOP="i3" ]; then
-   XDG_CURRENT_DESKTOP="Unity"
-fi
+# if [ $XDG_CURRENT_DESKTOP="i3" ]; then
+#    XDG_CURRENT_DESKTOP="Unity"
+# fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -126,16 +127,16 @@ export PATH=$PATH:$HOME/Development/bin # add all personal scripts to path
 export PATH="$PATH:/snap/bin"
 
 # if microk8s is not enabled, use kubectl binary
-if ! command kubectl > /dev/null 2> /dev/null ; then
-  export PATH="$PATH:$HOME/Development/tools/raw/kubectl"
-fi
+# if ! command kubectl > /dev/null 2> /dev/null ; then
+#   export PATH="$PATH:$HOME/Development/tools/raw/kubectl"
+# fi
 
 # Completion
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 
 # Fix broken pip3 https://github.com/pypa/pipenv/issues/2095#issuecomment-385598592
 export PATH="${HOME}/.local/bin:$PATH"
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
-export PATH="$PATH:$(yarn global bin)"
+# export PATH="$PATH:$(yarn global bin)"
 
