@@ -58,6 +58,12 @@ function configureMotion {
   ln -sf $KICK_ASS_DOTFILES_HOME/motion/motion.conf $HOME/.motion/motion.conf
 }
 
+function configurePicom {
+  log "picom (formerly compton)"
+  mkdir -p $HOME/.config/picom
+  ln -sf $KICK_ASS_DOTFILES_HOME/picom/config $HOME/.config/picom/picom.conf
+}
+
 function configureDiffSoFancy {
   log "diff-so-fancy"
   sudo ln -sf $KICK_ASS_DOTFILES_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
@@ -88,6 +94,9 @@ case "$1" in
   motion)
     configureMotion
     ;;
+  picom)
+    configurePicom
+    ;;
   -h|h|help|--help)
     echo "Usage:
       ./install             # Install all config files (will overwrite any existing configuration)
@@ -107,6 +116,7 @@ case "$1" in
     configureI3wm
     configureGit
     configureDiffSoFancy
+    configurePicom
     ;;
 esac
 
