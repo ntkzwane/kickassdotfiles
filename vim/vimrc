@@ -71,7 +71,7 @@ nnoremap <silent> <F5> :nohl<CR><C-l>                          " <Ctrl-a> redraw
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us  " automatically turn on spell-checking for Markdown file
 autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us  " automatically turn on spell-checking for Markdown file
 set complete+=kspell                                            " Autocomplete with dictionary words when spell check is on
-" set clipboard=unnamedplus                                       " Use system clipboard
+set clipboard=unnamedplus                                       " Use system clipboard
 
 "---------------------------------------------------------------
 ""           Plugins

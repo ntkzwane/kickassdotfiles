@@ -107,11 +107,6 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/tools/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-# this fixes the bug with the gnome-control-center not rendering properly
-# if [ $XDG_CURRENT_DESKTOP="i3" ]; then
-#    XDG_CURRENT_DESKTOP="Unity"
-# fi
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
@@ -137,6 +132,6 @@ export PATH="$PATH:/snap/bin"
 # Fix broken pip3 https://github.com/pypa/pipenv/issues/2095#issuecomment-385598592
 export PATH="${HOME}/.local/bin:$PATH"
 
-export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
-# export PATH="$PATH:$(yarn global bin)"
+# Rust
+. "$HOME/.cargo/env"
 

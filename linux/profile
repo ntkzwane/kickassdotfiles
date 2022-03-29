@@ -23,3 +23,4 @@ fi
 
 
 [ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
+. "$HOME/.cargo/env"
