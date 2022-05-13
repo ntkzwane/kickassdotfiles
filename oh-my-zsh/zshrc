@@ -52,7 +52,7 @@ ZSH_THEME="chuckbadass"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(helm)
+plugins=(docker docker-compose)
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -85,6 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sudo='sudo ' # subtitute aliases in 'sudo' arguments
+alias sudo='echo "Drop the magic word fam 🥺, then you get to:"'
+alias please='command sudo'
 alias dockerc='docker-compose'
 alias rsynco='rsync -arhvP'
 alias findit='ag --nobreak --nonumbers --noheading . | fzf' # respects .agignore and .gitignore
