@@ -85,7 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sudo='sudo ' # subtitute aliases in 'sudo' arguments
-alias sudo='echo "Drop the magic word fam 🥺, then you get to:"'
 alias please='command sudo'
 alias dockerc='docker-compose'
 alias rsynco='rsync -arhvP'
