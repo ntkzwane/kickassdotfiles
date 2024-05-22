@@ -129,9 +129,6 @@ export PATH="${PATH}:/snap/bin"
 # Fix broken pip3 https://github.com/pypa/pipenv/issues/2095#issuecomment-385598592
 export PATH="${HOME}/.local/bin:$PATH"
 
-# Rust
-. "$HOME/.cargo/env"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
