@@ -16,6 +16,7 @@ set $right l
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $opacity 0.9
 
 include /etc/sway/config-vars.d/*
 
@@ -26,7 +27,7 @@ font pango:monospace 9
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/Fuji_san_by_amaral.png fill
 #
 # Example configuration:
 #
@@ -243,7 +244,6 @@ bindsym $mod+Control+Right move workspace to output right
 # Capture screen
 bindsym $mod+Print exec shutter -f
 
-
 #
 # Layout stuff:
 #
@@ -264,7 +264,7 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+x mode "$mode_display"
+bindsym $mod+x swaymsg mode "$mode_display"
 
 #
 # Scratchpad:
@@ -296,22 +296,27 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
+bar {
+    position bottom
 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+    colors {
+        statusline #ffffff
+        background #00000000
+        focused_workspace #563D7C #563D7C #FFFFFF
+        active_workspace #333333 #6C757D #FFFFFF
+        inactive_workspace #333333 #6C757D #FFFFFF
+    }
+}
 
 ## backround and related aesthetics
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pkxel 0
+# for_window [con_id=__focused__] opacity $opacity
+for_window [class=".*"][con_id=__focused__] opacity $opacity
+for_window [app_id=".*"][con_id=__focused__] opacity $opacity
 # Set inner/outer gaps
 gaps inner 14
 gaps outer -2
@@ -357,6 +362,6 @@ mode "$mode_gaps_outer" {
 }
 
 # needed to make the vpn client span
-exec --no-startup-id /usr/bin/nm-applet
+# exec --no-startup-id /usr/bin/nm-applet
 
 include /etc/sway/config.d/*
