@@ -96,6 +96,7 @@ alias yolo='rm -rf node_modules && npm install'
 alias ktl='kubectl'
 alias vscode='code'
 alias cav-my-land='nmap -sn' # usage cav-my-land 192.168.1.0/24
+alias windmill='wmill'
 
 source <(cat $HOME/Development/bin/env) # load all personal environment variables
 export PATH=${PATH}:${HOME}/Development/bin # add all personal scripts to path
@@ -103,7 +104,7 @@ export PATH=${PATH}:${HOME}/Development/bin # add all personal scripts to path
 [ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
 export PATH=${PATH}:${JAVA_HOME}/bin
 
-export ANDROID_HOME="/media/ntokozo/Development/tools/android-sdk"
+export ANDROID_HOME="$HOME/Development/tools/android-sdk"
 export PATH=${PATH}:${ANDROID_HOME}/emulator
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/tools/bin
@@ -133,3 +134,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+source <(wmill completions zsh)

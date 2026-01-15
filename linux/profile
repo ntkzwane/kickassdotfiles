@@ -23,4 +23,8 @@ fi
 
 
 [ -s "/home/ntokozo/.jabba/jabba.sh" ] && source "/home/ntokozo/.jabba/jabba.sh"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
+
+# swap left alt and super key for linux for the akko keyboard
+xmodmap ~/.xmodmap
+
