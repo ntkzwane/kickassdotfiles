@@ -69,6 +69,11 @@ function configureDiffSoFancy {
   sudo ln -sf $KICK_ASS_DOTFILES_HOME/vim/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
 }
 
+function configureHyprland {
+  log "hyprland"
+  ln -sf $KICK_ASS_DOTFILES_HOME/hyprland/hyprland.lua $HOME/.config/hypr/hyprland.lua
+}
+
 case "$1" in
   fzf)
     configureFzf
@@ -97,6 +102,9 @@ case "$1" in
   picom)
     configurePicom
     ;;
+  hyprland)
+    configureHyprland
+    ;;
   -h|h|help|--help)
     echo "Usage:
       ./install             # Install all config files (will overwrite any existing configuration)
@@ -117,6 +125,7 @@ case "$1" in
     configureGit
     configureDiffSoFancy
     configurePicom
+    configureHyprland
     ;;
 esac
 
