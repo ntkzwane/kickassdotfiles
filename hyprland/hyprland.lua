@@ -258,7 +258,7 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exit())
 -- Resize mode
 hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
 
-hl.define_submap("resize", "reset", function()
+hl.define_submap("resize", function()
     local resize = function(x, y)
         return hl.dsp.window.resize({ x = x, y = y, relative = true })
     end
