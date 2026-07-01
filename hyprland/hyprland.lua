@@ -43,7 +43,11 @@ end)
 -------------------------------
 
 hl.env("XCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "breeze_cursors")
+hl.env("QT_QPA_PLATFORMTHEME", "kde")
+hl.env("GTK_THEME", "Breeze:dark")
 
 
 -----------------------
@@ -58,8 +62,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = { "rgba(aa00ffe0)", "rgba(55ff00e0)" }, angle = 45 },
-            inactive_border = "rgba(4d40004a)",
+            active_border   = { colors = { "rgba(926ee4ee)", "rgba(7256d0e0)" }, angle = 45 },
+            inactive_border = "rgba(292c3060)",
         },
 
         resize_on_border = false,
@@ -78,7 +82,7 @@ hl.config({
             enabled      = true,
             range        = 4,
             render_power = 3,
-            color        = "rgba(1a1a1aee)",
+            color        = "rgba(141618cc)",
         },
 
         blur = {
@@ -134,13 +138,13 @@ hl.config({
 
     group = {
         col = {
-            border_active   = { colors = { "rgba(008282e0)", "rgba(820000e0)" }, angle = 45 },
-            border_inactive = "rgba(4d40004a)",
+            border_active   = { colors = { "rgba(926ee4ee)", "rgba(7256d0e0)" }, angle = 45 },
+            border_inactive = "rgba(292c3060)",
         },
         groupbar = {
             col = {
-                active   = { colors = { "rgba(008282e0)", "rgba(820000e0)" }, angle = 45 },
-                inactive = "rgba(4d40004a)",
+                active   = { colors = { "rgba(926ee4ee)", "rgba(7256d0e0)" }, angle = 45 },
+                inactive = "rgba(292c3060)",
             },
         },
     },
@@ -185,7 +189,6 @@ hl.device({
 ---------------------
 
 local mainMod = "SUPER"
-local lockCmd = "~/.kickassdotfiles/i3/lockie"
 
 -- Terminal
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -292,7 +295,7 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),     { locked = true
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 -- Lock screen
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(lockCmd))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprlock"))
 
 -- System mode (power menu)
 hl.bind(mainMod .. " + Delete", hl.dsp.submap("system"))
@@ -305,7 +308,7 @@ hl.define_submap("system", "reset", function()
         end
     end
 
-    hl.bind("L", actionAndReset(lockCmd))
+    hl.bind("L", actionAndReset("hyprlock"))
     hl.bind("E", hl.dsp.exit())
     hl.bind("S", actionAndReset("systemctl suspend"))
     hl.bind("H", actionAndReset("systemctl hibernate"))

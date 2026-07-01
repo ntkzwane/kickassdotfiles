@@ -1,0 +1,7 @@
+# Session environment for Hyprland (used by uwsm when present)
+XCURSOR_SIZE=24
+XCURSOR_THEME=breeze_cursors
+HYPRCURSOR_SIZE=24
+HYPRCURSOR_THEME=breeze_cursors
+QT_QPA_PLATFORMTHEME=kde
+GTK_THEME=Breeze:dark

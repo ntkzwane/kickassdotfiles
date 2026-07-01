@@ -1,0 +1,263 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+* {
+    font-family: "Noto Sans", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.92);
+    color: @text;
+    border-bottom: 2px solid @surface0;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+}
+
+#workspaces {
+    background-color: @surface0;
+    border-radius: 1rem;
+    margin: 5px 0 5px 5px;
+}
+
+#workspaces button {
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0 8px;
+    margin: 2px;
+    background-color: transparent;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    color: @sky;
+    background-color: @surface1;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+    background-color: @surface1;
+}
+
+#mode,
+#scratchpad,
+#window,
+#custom-media,
+#mpd,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#keyboard-state,
+#language,
+#battery,
+#battery-bat2,
+#clock,
+#tray,
+#custom-power {
+    background-color: @surface0;
+    padding: 0 10px;
+    margin: 5px 2px;
+    color: @text;
+}
+
+#mode {
+    color: @peach;
+    border-radius: 1rem;
+}
+
+#scratchpad {
+    color: @subtext0;
+    border-radius: 1rem;
+}
+
+#window {
+    color: @text;
+    border-radius: 1rem;
+    margin: 5px 4px;
+}
+
+#custom-media {
+    color: @mauve;
+    border-radius: 1rem;
+    margin-left: 5px;
+}
+
+#mpd {
+    color: @green;
+    border-radius: 1rem 0 0 1rem;
+    margin-left: 5px;
+}
+
+#mpd.disconnected {
+    color: @red;
+}
+
+#mpd.stopped {
+    color: @overlay0;
+}
+
+#mpd.paused {
+    color: @teal;
+}
+
+#idle_inhibitor {
+    color: @overlay1;
+    border-radius: 0;
+}
+
+#idle_inhibitor.activated {
+    color: @yellow;
+}
+
+#pulseaudio {
+    color: @maroon;
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+}
+
+#network {
+    color: @blue;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#power-profiles-daemon.performance {
+    color: @red;
+}
+
+#power-profiles-daemon.balanced {
+    color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @mauve;
+}
+
+#temperature {
+    color: @yellow;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#backlight {
+    color: @yellow;
+}
+
+#keyboard-state {
+    color: @teal;
+}
+
+#language {
+    color: @sapphire;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery-bat2 {
+    color: @green;
+}
+
+#battery.charging,
+#battery.plugged,
+#battery-bat2.charging,
+#battery-bat2.plugged {
+    color: @green;
+}
+
+#battery.warning:not(.charging),
+#battery-bat2.warning:not(.charging) {
+    color: @peach;
+}
+
+#battery.critical:not(.charging),
+#battery-bat2.critical:not(.charging) {
+    color: @red;
+}
+
+#clock {
+    color: @blue;
+    border-radius: 0 1rem 1rem 0;
+    margin-right: 5px;
+}
+
+#tray {
+    border-radius: 1rem;
+    margin-right: 2px;
+}
+
+#custom-power {
+    color: @red;
+    border-radius: 0 1rem 1rem 0;
+    margin-right: 5px;
+}
+
+#custom-power:hover {
+    color: @maroon;
+}
+
+tooltip {
+    background-color: @base;
+    border: 1px solid @surface1;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @text;
+}

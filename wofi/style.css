@@ -1,0 +1,63 @@
+/* Breeze Dark */
+
+window {
+    margin: 0;
+    border: 2px solid #926ee4;
+    border-radius: 10px;
+    background-color: #202326;
+}
+
+#input {
+    margin: 12px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #292c30;
+    color: #fcfcfc;
+}
+
+#input:focus {
+    box-shadow: inset 0 0 0 1px #926ee4;
+}
+
+#inner-box {
+    margin: 0 12px 12px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0;
+    border: none;
+}
+
+#text {
+    margin: 4px;
+    color: #fcfcfc;
+}
+
+#entry {
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+#entry:selected {
+    background-color: #926ee4;
+    color: #202326;
+}
+
+#entry:selected #text {
+    color: #202326;
+}
+
+#img {
+    margin-right: 8px;
+}

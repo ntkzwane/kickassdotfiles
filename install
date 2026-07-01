@@ -71,7 +71,26 @@ function configureDiffSoFancy {
 
 function configureHyprland {
   log "hyprland"
+  mkdir -p $HOME/.config/hypr
   ln -sf $KICK_ASS_DOTFILES_HOME/hyprland/hyprland.lua $HOME/.config/hypr/hyprland.lua
+  ln -sf $KICK_ASS_DOTFILES_HOME/hyprland/hyprlock.conf $HOME/.config/hypr/hyprlock.conf
+
+  log "hyprland:theme"
+  mkdir -p $HOME/.config/uwsm
+  ln -sf $KICK_ASS_DOTFILES_HOME/hyprland/env $HOME/.config/uwsm/env
+
+  mkdir -p $HOME/.config/gtk-3.0 $HOME/.config/gtk-4.0
+  ln -sf $KICK_ASS_DOTFILES_HOME/gtk/gtk-3.0/settings.ini $HOME/.config/gtk-3.0/settings.ini
+  ln -sf $KICK_ASS_DOTFILES_HOME/gtk/gtk-4.0/settings.ini $HOME/.config/gtk-4.0/settings.ini
+
+  log "waybar"
+  mkdir -p $HOME/.config/waybar
+  ln -sf $KICK_ASS_DOTFILES_HOME/waybar/config.jsonc $HOME/.config/waybar/config.jsonc
+  ln -sf $KICK_ASS_DOTFILES_HOME/waybar/style.css $HOME/.config/waybar/style.css
+
+  log "wofi"
+  mkdir -p $HOME/.config/wofi
+  ln -sf $KICK_ASS_DOTFILES_HOME/wofi/style.css $HOME/.config/wofi/style.css
 }
 
 case "$1" in
