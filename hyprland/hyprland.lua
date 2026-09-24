@@ -326,6 +326,7 @@ hl.bind(mainMod .. " + CTRL + L",     hl.dsp.workspace.move({ monitor = "r" }))
 
 -- Screenshot
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp)"'))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("flameshot gui"))
 
 -- Application launcher
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
@@ -368,3 +369,20 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.window_rule({
+  name = "flameshot-fix",
+  match = {
+    class = "flameshot",
+    title = "flameshot"
+  },
+  float = true,
+  pin = true,
+  move = "0 0",
+  fullscreen_state = "2 2", -- Tells app it is fullscreen without actually tiling it
+  no_anim = true,
+  border_size = 0,
+  rounding = 0,
+  no_shadow = true
+})
+
